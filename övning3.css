@@ -1,95 +1,127 @@
 * {
     box-sizing: border-box;
-    
+    --typical-length: 15vh;
 }
+
 html {
     background-color: rgb(64, 121, 81);
+    margin: 0;
+    padding: 0;
 }
+
 body {
     margin: 0 auto;
     max-width: 60rem;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 3fr 1fr;
     background-color: rgb(235, 235, 235);
-    padding: 0.5rem;
+    padding: 3vh;
     
 }
 
 
 header {
-    width: 100%;
-    height: 8rem;
-    background-color: rgb(72,0,99);
+    
+    &.top-header {
+        display: flex;
+        justify-content: flex-start;
+        div {
+            height: var(--typical-length);
+            width: var(--typical-length);
+            border-radius: 50%;
+            background-color: rgb(72,0,99);
+        }
+    }
+
+    &.bottom-header {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1vh;
+        div {
+            border-radius: 6rem;
+            background-color: rgb(178,0,138);
+        }
+    }
 }
 
 main {
-    
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0rem;
-    
-    
-    section {
-        
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    padding: 6vh 12vh 12vh 12vh;
+    gap: 2vh;
+
+    aside {
+        gap: 2vh 1vh;
         &.left {
-            gap: 1rem;
-            width: 30%;
             display: grid;
-            
-            
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
             div {
-                background-color: rgb(178,0,138);
+                background-color: rgb(253,150,169);
             }
         }
 
-        
+        &.right {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 1vh;
+            div {
+                background-color: rgb(244,45,172);
+            }
+        }
     }
-
-    aside {
-        width: 30%;
-        background-color: rgb(253,150,169);
-        height: 100%;
-    }
+    
 }
 
 footer {
-    height: 8rem;
-    width: 100%;
     background-color: rgb(193,200,154);
 
 }
 
-@media screen and (max-width: 500px){
-    main {
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 0.5rem;
-        section {
-            
-            &.left {
-                background-color: inherit;
-                display: grid;
-                width: 100%;
-                gap: 0.5rem;
-                height: 30vh;
-                
-                div{
-                    width: 100%;
-                
-                }
-                
-            }
-        }
+@media screen and (max-width: 600px) {
+    body {
+        grid-template-rows: 2fr 3fr 5fr 2fr;
+        padding: 0;
+    }
 
-        aside {
-            width: 100%;
-            height: 10rem;
+    header {
+        &.top-header {
+            justify-content: center;
+        }
+        &.bottom-header {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
         }
     }
+
     
+    main {
+        padding: 6vh 12vh 12vh 12vh; 
+        grid-template-columns: 1fr;
+        grid-template-rows: 4fr 1fr;
+        gap: 1vh;
+        aside {
+            gap: 1vh;
+            &.left {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+                div {
+                    background-color: rgb(253,150,169);
+                }
+            }
+
+            &.right {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 1fr;
+                gap: 2vh;
+                div {
+                    background-color: rgb(244,45,172);
+                }
+            }
+        }
+        
+    }
+
 }
