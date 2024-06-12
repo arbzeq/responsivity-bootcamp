@@ -1,28 +1,31 @@
 * {
     box-sizing: border-box;
     --typical-length: 15vh;
-}
-
-html {
-    background-color: rgb(64, 121, 81);
     margin: 0;
     padding: 0;
 }
 
+html {
+    background-color: rgb(64, 121, 81);
+    
+}
+
 body {
     margin: 0 auto;
-    max-width: 60rem;
+    max-width: 70rem;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 3fr 1fr;
     background-color: rgb(235, 235, 235);
-    padding: 3vh;
+    padding: 1vh;
     
 }
 
 
 header {
-    
+    padding: 2vh;
+
     &.top-header {
         display: flex;
         justify-content: flex-start;
@@ -48,7 +51,7 @@ header {
 main {
     display: grid;
     grid-template-columns: 4fr 3fr;
-    padding: 6vh 12vh 12vh 12vh;
+    padding: 3vh 9vh 9vh 9vh;
     gap: 2vh;
 
     aside {
@@ -83,22 +86,23 @@ footer {
 @media screen and (max-width: 600px) {
     body {
         grid-template-rows: 2fr 3fr 5fr 2fr;
-        padding: 0;
     }
 
     header {
+        padding: 2vh 0 0 0;
         &.top-header {
             justify-content: center;
         }
         &.bottom-header {
             grid-template-columns: 1fr;
             grid-template-rows: repeat(3, 1fr);
+            margin-bottom: 1vh;
         }
     }
 
     
     main {
-        padding: 6vh 12vh 12vh 12vh; 
+        padding: 0 0 1vh 0; 
         grid-template-columns: 1fr;
         grid-template-rows: 4fr 1fr;
         gap: 1vh;
